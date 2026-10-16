@@ -1,0 +1,11 @@
+[
+  "mileage_km",
+  "engine_temp_c",
+  "rpm",
+  "vibration_level",
+  "oil_quality_pct",
+  "brake_pad_mm",
+  "battery_voltage",
+  "coolant_level_pct",
+  "vehicle_age_years"
+]

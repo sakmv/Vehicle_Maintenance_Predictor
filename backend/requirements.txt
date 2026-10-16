@@ -1,0 +1,11 @@
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+scikit-learn>=1.5.0
+xgboost>=2.1.0
+pandas>=2.2.0
+numpy>=1.26.0
+joblib>=1.4.0
+pydantic>=2.7.0
+anthropic>=0.40.0
+python-dotenv>=1.0.0
+scipy>=1.11.0

@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Saira+Condensed:wght@600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #080f16;
+  --accent: #5ad1ff;
+  --line: rgba(160, 190, 215, 0.14);
+  --muted: #8fa5b6;
+  color-scheme: dark;
+}
+
+body {
+  color: #e3eef6;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  min-height: 100vh;
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 80% -10%, rgba(90, 209, 255, 0.12), transparent 60%),
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  background-attachment: fixed;
+}
+
+@layer components {
+  .panel {
+    background: rgba(14, 24, 34, 0.86);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .readout {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  .divider {
+    border-top: 1px solid var(--line);
+  }
+  .font-title {
+    font-family: "Saira Condensed", "Barlow Condensed", system-ui, sans-serif;
+  }
+}
+
+/* Sensor sliders: filled track driven by --p (0-100%) */
+input.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 24px;
+  background: transparent;
+  cursor: pointer;
+}
+input.range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, var(--accent) var(--p), rgba(160, 190, 215, 0.18) var(--p));
+}
+input.range::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(160, 190, 215, 0.18);
+}
+input.range::-moz-range-progress {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+input.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--accent);
+  transition: transform 0.15s;
+}
+input.range::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--accent);
+}
+input.range:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
+input.range:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(90, 209, 255, 0.3);
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
